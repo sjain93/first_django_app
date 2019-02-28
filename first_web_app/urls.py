@@ -13,7 +13,6 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.urls import path
@@ -22,7 +21,11 @@ def home_page(request):
     response = render(request, 'index.html')
     return HttpResponse(response)
 
+def portfolio(request):
+    response = render(request, 'gallery.html')
+    return HttpResponse(response)
 
 urlpatterns = [
-    path('home', home_page)
+    path('home', home_page),
+    path('portfolio/', portfolio)
 ]
